@@ -13,6 +13,7 @@ using namespace std;
 const double costusa1 = 6.00, costusa2 = 9.00, costusa3 = 12.00;
 const double costcan1 = 8.00, costcan2 = 12.00, costcan3 = 15.00;
 const double costaus1 = 10.00, costaus2 = 14.00, costaus3 = 17.00;
+const double costsat1 = 90000000.00, costsat2 = 120000000.00, costsat3 = 175000000.00;
 
 int main()
 {
@@ -48,14 +49,37 @@ int main()
     double order = 0, cost = 0;
     cout << "Please enter your order total...............:";
     cin >> order;
-    cout << "Please enter destination. (usa/can/aus).....:";
+    cout << "Please enter destination. (usa/can/aus/saturn).....:";
     cin >> destination;
     //changing lowercase to uppercase
 
     transform(destination.begin(), destination.end(), destination.begin(), ::toupper);
     transform(item.begin(), item.end(), item.begin(), ::toupper);
     //If destination is usa
-
+    if (destination == "SATURN")
+    {
+        cout << "Your item is......................" << item << endl;
+        if (order <= 50.01)
+        {
+            cost = costsat1 + total;
+        }
+        else if (order <= 100)
+        {
+            cost = costsat2 + total;
+        }
+        else if (order <= 150)
+        {
+            cost = costsat3 + total;
+        }
+        int shipcost = order + cost;
+        cout << fixed << setprecision(2);
+        cout << "Your shippping cost is...........$" << cost << endl;
+        cout << "You are shipping to.............." << destination << endl;
+        cout << fixed << setprecision(2);
+        cout << "Your total shipping costs are....$" << shipcost << endl;
+        cout << setfill('-') << setw(60) << '-';
+        cout << "Thank you!";
+    }
     if (destination == "USA")
     {
         cout << "Your item is......................" << item << endl;
