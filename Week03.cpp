@@ -72,6 +72,7 @@ int main()
             cost = costsat3 + total;
         }
         int shipcost = order + cost;
+
         cout << fixed << setprecision(2);
         cout << "Your shippping cost is...........$" << cost << endl;
         cout << "You are shipping to.............." << destination << endl;
